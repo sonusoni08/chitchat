@@ -1,7 +1,6 @@
 import React from 'react'
 import userContext from './userContext';
 import { useContext } from 'react';
-import "./NavBar.css";
 
 function ChatHeader() {
     const [currentUser, setCurrentUser] = useContext(userContext).currentUser;

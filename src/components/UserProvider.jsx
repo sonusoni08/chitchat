@@ -24,8 +24,10 @@ function UserProvider({children}) {
     const [currentUser, setCurrentUser] = useState({});
     const [friends, setFriends] = useState([]);
     const [storeFriends, setStoreFriends] = useState([]);
+    const [page, setPage] = useState(2);
+
     return (
-        <userContext.Provider value={{formData : [formData, setFormData], loginData:  [user, setUser], userChats: [chats, setChats], userFriends: [friends, setFriends], currentUser: [currentUser, setCurrentUser], storedFriends: [storeFriends, setStoreFriends]}}>
+        <userContext.Provider value={{formData : [formData, setFormData], loginData:  [user, setUser], userChats: [chats, setChats], userFriends: [friends, setFriends], currentUser: [currentUser, setCurrentUser], storedFriends: [storeFriends, setStoreFriends], currentPage : [page, setPage]}}>
             {children}
         </userContext.Provider>
     )

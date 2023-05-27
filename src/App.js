@@ -3,7 +3,6 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import ContactUs from "./components/ContactUs"
 import { createContext, useState} from 'react';
-import "./components/NavBar.css";
 import Footer from "./components/Footer"
 import LoginSignup from './components/LoginSignup';
 import Error from "./components/Error"
@@ -13,6 +12,7 @@ import userContext from './components/userContext';
 function App() {
 
     const [user, setUser] = useContext(userContext).loginData;
+    const [page, setPage] = useContext(userContext).currentPage;
 
     useEffect (() => {
         const temp = localStorage.getItem("name");
@@ -27,11 +27,13 @@ function App() {
   return (
 
       <div className='full-body App'>
-          <Routes>
+          {(page == 1) && <ContactUs/>}
+          {(page == 2) && <LoginSignup/>}
+          {/* <Routes>
             <Route exact path="/" element={<ContactUs/>} />
             <Route path="/loginsignup" element={<LoginSignup/>} />
             <Route path = "*" element ={<Error/>} />
-          </Routes>
+          </Routes> */}
           <Footer /> 
       </div>
 

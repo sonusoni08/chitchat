@@ -9,6 +9,8 @@ function Profile() {
     const [friends, setFriends] = useContext(userContext).userFriends;
     const [currentUser, setCurrentUser] = useContext(userContext).currentUser;
     const [storeFriends, setStoreFriends] = useContext(userContext).storedFriends;
+    const [page, setPage] = useContext(userContext).currentPage;
+    
     // console.log(user.image);
 
     function handleCircleClick() {
@@ -22,11 +24,16 @@ function Profile() {
         setFriends([]);
         setStoreFriends([]);
         setShowDropdown(false);
+        setPage(2);
+    }
+
+    const toggle = () => {
+        setPage(2);
     }
 
     return (
         <div>
-            {(user.name.length == 0) && <Link to="/loginsignup"><button className="btn btn-primary" style={{ marginLeft: "auto", marginRight: "2rem", backgroundColor: "#FF2E63", border: "none" }}>Login/Signup</button></Link>}
+            {(user.name.length == 0) && <button onClick = {toggle} className="btn btn-primary" style={{ marginLeft: "auto", marginRight: "2rem", backgroundColor: "#FF2E63", border: "none" }}>Login/Signup</button>}
             {(user.name.length > 0) && (
                 <div style={{ position: "relative" }}>
                     {<img src={user.image} alt="" style={{
