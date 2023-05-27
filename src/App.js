@@ -12,8 +12,7 @@ import userContext from './components/userContext';
 function App() {
 
     const [user, setUser] = useContext(userContext).loginData;
-    const [page, setPage] = useContext(userContext).currentPage;
-
+    
     useEffect (() => {
         const temp = localStorage.getItem("name");
         if (temp != undefined) {
@@ -27,13 +26,13 @@ function App() {
   return (
 
       <div className='full-body App'>
-          {(page == 1) && <ContactUs/>}
-          {(page == 2) && <LoginSignup/>}
-          {/* <Routes>
+          {/* {(page == 1) && <ContactUs/>}
+          {(page == 2) && <LoginSignup/>} */}
+          <Routes>
             <Route exact path="/" element={<ContactUs/>} />
             <Route path="/loginsignup" element={<LoginSignup/>} />
             <Route path = "*" element ={<Error/>} />
-          </Routes> */}
+          </Routes>
           <Footer /> 
       </div>
 

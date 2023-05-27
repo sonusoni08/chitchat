@@ -23,7 +23,6 @@ function LoginSignup() {
     const [current, setCurrent] = useState(false);
     const navigate = useNavigate();
     const [user, setUser] = useContext(userContext).loginData;
-    const [page, setPage] = useContext(userContext).currentPage;
 
     const SignupGoogle = async () => {
         let flag = true;
@@ -40,8 +39,7 @@ function LoginSignup() {
                 }
             })
         })
-        // navigate("/");
-        setPage(1);
+        navigate("/");
         if (flag) {
             try {
                 const docRef = await addDoc(collection(db, "userEmail"), {
@@ -158,8 +156,7 @@ function LoginSignup() {
                 })
             })
         if (flag) {
-            // navigate("/");
-            setPage(1);
+            navigate("/");
         }
         else {
             toast.error('Invalid ID/Password', {
@@ -211,8 +208,7 @@ function LoginSignup() {
                 }
             })
         if (flag) {
-            // navigate("/");
-            setPage(1);
+            navigate("/");
             localStorage.setItem("name", name);
             localStorage.setItem("email", email);
             localStorage.setItem("image", "https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png");
