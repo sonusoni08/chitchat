@@ -12,7 +12,7 @@ import userContext from './components/userContext';
 function App() {
 
     const [user, setUser] = useContext(userContext).loginData;
-    
+
     useEffect (() => {
         const temp = localStorage.getItem("name");
         if (temp != undefined) {
