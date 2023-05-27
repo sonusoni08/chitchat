@@ -1,24 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import ContactUs from "./components/ContactUs"
+import { createContext, useState} from 'react';
+import "./components/NavBar.css";
+import Footer from "./components/Footer"
+import LoginSignup from './components/LoginSignup';
+import Error from "./components/Error"
+import { useContext, useEffect } from 'react';
+import userContext from './components/userContext';
 
 function App() {
+
+    const [user, setUser] = useContext(userContext).loginData;
+
+    useEffect (() => {
+        const temp = localStorage.getItem("name");
+        if (temp != undefined) {
+            setUser({
+                name : localStorage.getItem("name"),
+                email : localStorage.getItem("email"),
+                image : localStorage.getItem("image"),
+            })
+        }
+    }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <div className='full-body App'>
+          <Routes>
+            <Route exact path="/" element={<ContactUs/>} />
+            <Route path="/loginsignup" element={<LoginSignup/>} />
+            <Route path = "*" element ={<Error/>} />
+          </Routes>
+          <Footer /> 
+      </div>
+
   );
 }
 

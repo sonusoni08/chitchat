@@ -1,0 +1,16 @@
+.badge-circle {
+  display: inline-flex;
+  justify-content: csenter;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-left: 5px;
+  background-color: #dc3545;
+}
+
+.badge-number {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}

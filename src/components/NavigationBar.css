@@ -1,0 +1,21 @@
+.navbar-custom {
+  /* background-color: #666666; */
+  background-color: #61828b;
+  padding: 10px 30px;
+  font-size: 18px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar-custom a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.navbar-item {
+  padding: 1rem;
+  margin-left: 2rem;
+}
